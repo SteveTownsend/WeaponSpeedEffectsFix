@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeaponSpeedEffectsFix", "WeaponSpeedEffectsFix\WeaponSpeedEffectsFix.csproj", "{A19EB05B-81CA-4D71-95F2-6F1CCFE015F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A19EB05B-81CA-4D71-95F2-6F1CCFE015F0}.Debug|x64.ActiveCfg = Debug|x64
+		{A19EB05B-81CA-4D71-95F2-6F1CCFE015F0}.Debug|x64.Build.0 = Debug|x64
+		{A19EB05B-81CA-4D71-95F2-6F1CCFE015F0}.Release|x64.ActiveCfg = Release|x64
+		{A19EB05B-81CA-4D71-95F2-6F1CCFE015F0}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45A24BE8-DAAA-42FD-A8F6-27D7AE727E37}
+	EndGlobalSection
+EndGlobal

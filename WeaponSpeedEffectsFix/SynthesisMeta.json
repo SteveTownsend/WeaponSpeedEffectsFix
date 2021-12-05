@@ -1,0 +1,8 @@
+{
+  "Nickname": "WeaponSpeedEffectsFix",
+  "Visibility": "VIsible",
+  "OneLineDescription": "Weapon Speed Effects Fix and Attack Speed Framework Plus Synthesis Patcher for Skyrim SE",
+  "LongDescription": "Replaces '_lilmace - Weapon Speed Effects Fix patcher.pas' from https://www.nexusmods.com/skyrimspecialedition/mods/36042",
+  "PreferredAutoVersioning": "Default",
+  "RequiredMods": []
+}
