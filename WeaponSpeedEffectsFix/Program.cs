@@ -15,31 +15,46 @@ namespace WeaponSpeedEffectsFix
 {
     public class Program
     {
-        private static ModKey? WeaponEffectsSpeedModKey
+        private static bool _gotWeaponEffectsSpeedModKey;
+        private static ModKey _weaponEffectsSpeedModKey;
+        private static ModKey WeaponEffectsSpeedModKey
         {
-            get {
-                try
+            get
+            {
+                if (!_gotWeaponEffectsSpeedModKey)
                 {
-                    return ModKey.FromNameAndExtension("WeaponSpeedMultFix.esp");
+                    _weaponEffectsSpeedModKey = ModKey.FromNameAndExtension("WeaponSpeedMultFix.esp");
+                    _gotWeaponEffectsSpeedModKey = true;
                 }
-                catch (Exception)
-                {
-                    return null;
-                }
+                return _weaponEffectsSpeedModKey;
             }
         }
+        private static bool _gotWeaponEffectsSpeedModPresent;
+        private static bool _weaponEffectsSpeedModPresent;
+        private static bool WeaponEffectsSpeedModPresent
+        {
+            get
+            {
+                if (!_gotWeaponEffectsSpeedModPresent)
+                {
+                    _weaponEffectsSpeedModPresent = patcherState!.LoadOrder.ContainsKey(WeaponEffectsSpeedModKey);
+                    _gotWeaponEffectsSpeedModPresent = true;
+                }
+                return _weaponEffectsSpeedModPresent;
+            }
+        }
+        private static bool _gotAttackSpeedFrameworkModKey;
+        private static ModKey _attackSpeedFrameworkModKey;
         private static ModKey? AttackSpeedFrameworkModKey
         {
             get
             {
-                try
+                if (!_gotAttackSpeedFrameworkModKey)
                 {
-                    return ModKey.FromNameAndExtension("Attack Speed Framework.esp");
+                    _attackSpeedFrameworkModKey = ModKey.FromNameAndExtension("Attack Speed Framework.esp");
+                    _gotAttackSpeedFrameworkModKey = true;
                 }
-                catch (Exception)
-                {
-                    return null;
-                }
+                return _attackSpeedFrameworkModKey;
             }
         }
 
@@ -75,7 +90,7 @@ namespace WeaponSpeedEffectsFix
 
                 // add script if WSEF is present - this includes every in-scope MGEF, so applicable values are reset
                 // during OnEffectStart
-                if (WeaponEffectsSpeedModKey is not null)
+                if (WeaponEffectsSpeedModPresent)
                 {
                     var effectMod = state.LoadOrder[state.LoadOrder.IndexOf(effect.FormKey.ModKey)];
                     if (!effectMod.Mod!.MasterReferences.Any(reference => reference.Master == WeaponEffectsSpeedModKey))
