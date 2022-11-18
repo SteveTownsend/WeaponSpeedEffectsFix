@@ -1,15 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using DynamicData;
 using Mutagen.Bethesda;
 using Mutagen.Bethesda.Plugins;
 using Mutagen.Bethesda.Plugins.Records;
-using Mutagen.Bethesda.Synthesis;
 using Mutagen.Bethesda.Skyrim;
+using Mutagen.Bethesda.Synthesis;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace WeaponSpeedEffectsFix
 {
@@ -121,7 +119,7 @@ namespace WeaponSpeedEffectsFix
             foreach (var item in patcherState!.LoadOrder.PriorityOrder.WinningOverrides<T>())
             {
                 // skip records with no reference to any in-scope MGEF
-                if (!item!.ContainedFormLinks.Any(link => inScopeEffects.Contains(link.FormKey)))
+                if (!item!.EnumerateFormLinks().Any(link => inScopeEffects.Contains(link.FormKey)))
                     continue;
 
                 // skip records where mod has WSEF or ASF as a master
